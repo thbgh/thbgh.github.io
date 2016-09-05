@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<script type="text/javascript" src="js/move.js"></script>
+	<script type="text/javascript">
+		window.onload=function(){
+	var box=document.getElementById('box'),
+	    iCo=box.getElementsByTagName('a');
+	for(i=0;i<iCo.length;i++){
+		iCo[i].onmouseenter=function(){
+			var _this=this.getElementsByTagName('i')[0];
+			startMove(_this,{top:-30,opacity:0},function(){
+					_this.style.top="20px";
+				startMove(_this,{top:5,opacity:100});
+			});
+		};
+	}
+};
+	</script>
+</head>
+<body>
+
+	<div id="box">
+		<div id="div1">
+		<a href="#"><i><img src="img/Firefox.jpg"></i><p>Firefox</p></a>
+		<a href="#"><i><img src="img/Google.jpg"></i><p>Google</p></a>
+		<a href="#"><i><img src="img/IE.jpg"></i><p>IE</p></a>
+		</div>
+		<div id="div2">
+		<a href="#"><i><img src="img/Safari.jpg"></i><p>Safari</p></a>
+		<a href="#"><i><img src="img/Opera.jpg"></i><p>Opera</p></a>
+		<a href="#"><i><img src="img/Sougou.jpg"></i><p>Sougou</p></a>
+		</div>
+	
+	</div> 
+
+	<!-- <div id="box">
+		<div id="div1">
+		<a href="#"><i><img src="img/codepen.png"></i><p>Codepen</p></a>
+		<a href="#"><i><img src="img/GitHub.png"></i><p>GitHub</p></a>
+		<a href="#"><i><img src="img/Google.png"></i><p>Google</p></a>
+		</div>
+		<div id="div2">
+		<a href="#"><i><img src="img/OSx.png"></i><p>OSx</p></a>
+		<a href="#"><i><img src="img/Windows.png"></i><p>Windows</p></a>
+		<a href="#"><i><img src="img/WordPress.png"></i><p>WordPress</p></a>
+		</div>
+	
+	</div> -->
+</body>
+</html>

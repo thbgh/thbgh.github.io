@@ -1,0 +1,205 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html"   charset="gb2312"  />
+<title>我设计的企业网站</title>
+<link href="css/main.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="js/setHomeSetFav.js"></script>
+<script type="text/javascript" src="js/myfocus-2.0.1.min.js" charset="utf-8"></script><!--引入myFocus库-->
+<script type="text/javascript">
+myFocus.set({
+    id:'boxID',//焦点图盒子ID
+    pattern:'mF_fancy',//风格应用的名称
+    time:3,//切换时间间隔(秒)
+    trigger:'click',//触发切换模式:'click'(点击)/'mouseover'(悬停)
+    width:1000,//设置图片区域宽度(像素)
+    height:400,//设置图片区域高度(像素)
+    txtHeight:'default'//文字层高度设置(像素),'default'为默认高度，0为隐藏
+});
+</script>
+</head>
+
+<body>
+<div class="top">
+  <div class="top_content">
+    <ul>
+      <li><a href="#">联系我们</a></li>
+      <li><a onclick="AddFavorite(window.location,document.title)" href="javascript:void(0)">加入收藏</a></li>
+      <li><a onclick="SetHome(window.location)" href="javascript:void(0)">设为首页</a></li>
+    </ul>
+  </div>
+</div>
+<!--页面顶端top结束-->
+
+<div class="wrap">
+  <div  class="logo">
+    <div class="logo_left"><img src="images/logo.jpg" /></div>
+    <div class="logo_right"><img src="images/tel.jpg" width="32" height="32" />服务热线：<span class="tel">123-456-7890</span></div>
+  </div>
+  <!--logo结束-->
+  
+  <div class="nav">
+    <div  class="nav_left"></div>
+    <div class="nav_mid">
+      <div class="nav_mid_left">
+        <ul>
+          <li><a href="#">首页</a></li>
+          <li><a href="list.html">关于前端</a></li>
+          <li><a href="list.html">前端动态</a></li>
+          <li><a href="list.html">前端学习路线</a></li>
+          <li><a href="list.html">人才招聘</a></li>
+        </ul>
+      </div>
+      <!--nav_mid_left结束-->
+      <div class="nav_mid_right">
+        <form action="" method="post">
+          <input type="text" class="search_text" />
+          <!--<input type="text" class="search_text" x-webkit-speech />-->
+        </form>
+      </div>
+      <!--nav_mid_right结束--> 
+    </div>
+    <!--导航主体nav_mid结束-->
+    <div class="nav_right"></div>
+  </div>
+  <!--nav结束-->
+  
+  <div class="ad">
+    <div id="boxID"><!--焦点图盒子-->
+      <div class="loading"><img src="images/loading.gif" alt="请稍候..." /></div>
+      <!--载入画面(可删除)-->
+      <div class="pic"><!--内容列表(li数目可随意增减)-->
+        <ul>
+          <li><a href="#"><img src="images/add1.jpg" thumb="" alt="" text="详细描述1" /></a></li>
+          <li><a href="#"><img src="images/add2.jpg" thumb="" alt="" text="详细描述2" /></a></li>
+          <li><a href="#"><img src="images/add3.jpg" thumb="" alt="" text="详细描述3" /></a></li>
+          <li><a href="#"><img src="images/add4.jpg" thumb="" alt="" text="详细描述4" /></a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <!--ad结束-->
+  
+  <div class="main">
+    <div class="news">
+      <div class="title">
+        <h2 class="titile_left">前端动态</h2>
+        <span class="title_right"><a href="#">More&gt;&gt;</a></span> </div>
+      <!--title结束-->
+      
+      <div class="pic_news"> <img src="images/dongtai.jpg" alt="前端动态" width="330" height="130" />
+        
+      </div>
+      <!--pic_news结束-->
+      
+      <div class="news_list">
+        <ul>
+          <li><span>2016-06-10</span> <a href="news.html">2016年全球网站设计趋势</a></li>
+          <li><span>2016-06-01</span><a href="news.html">第三届“HTML5峰会”8月来袭</a></li>
+          <li><span>2016-05-30</span><a href="news.html">开源 HTML5 跨屏前端框架 - Amaze UI</a></li>
+         
+        </ul>
+      </div>
+      <!--news_list结束--> 
+      
+    </div>
+    <!--news结束-->
+    
+    <div class="courses">
+      <div class="title">
+        <h2 class="titile_left">前端学习路线</h2>
+        <span class="title_right"><a href="#">More&gt;&gt;</a></span> </div>
+      <!--title结束-->
+      
+      <div class="course_list"><img src="images/study.jpg" alt="前端工程师修炼路线" width="155" height="130" />
+        <h2><a href="news.html">前端工程师修炼路线介绍</a></h2>
+        <p> 互联网的迅猛发展，前端工程师职业越来越火热。该路径从基础知识到实战案例演练，一步步带您快速掌握如何搭建网站静态页面、开发网站交互特效，为您打开WEB前端工程师大门。还在等什么？快来学习吧! </p>
+      </div>
+      <!--course_list结束-->
+      
+      <div class="course_type">
+        <ul>
+          <li><a href="courses.html">HTML/CSS</a></li>
+          <li><a href="courses.html">JavaScript</a></li>
+          <li><a href="courses.html">jQuery</a></li>
+          <li><a href="courses.html">BootStrap</a></li>
+        </ul>
+      </div>
+    </div>
+    <!--courses结束-->
+    
+    <div class="sidebar">
+      <div class="video">
+        <div class="title">
+          <h2 class="titile_left">媒体聚焦</h2>
+          <span class="title_right"><a href="#">More&gt;&gt;</a></span> </div>
+        <!--title结束-->
+        <p class="video_content">
+          <embed src='http://player.youku.com/player.php/sid/XMTM2NDI0MDU2/v.swf' allowFullScreen='true' quality='high' width='220' height='180' align='middle' allowScriptAccess='always' type='application/x-shockwave-flash'></embed>
+        </p>
+      </div>
+      <!--video结束-->
+      
+      <div class="service"> <p>第四届D2前端技术论坛宣传片</p></div>
+    </div>
+    <!--sidebar结束--> 
+    
+  </div>
+  <!--main结束--> 
+</div>
+<!--最外层wrap结束  -->
+<div class="copyright">
+  <div class="copyright_content">
+    <ul>
+      <li>关于
+        <ul>
+          <li>品牌故事</li>
+          <li>联系我们</li>
+          <li>加入我们</li>
+          <li>版权声明</li>
+        </ul>
+      </li>
+      <li>课程
+        <ul>
+          <li>HTML/CSS</li>
+          <li>JavaScript</li>
+          <li>jQuery</li>
+          <li>BootStrap</li>
+        </ul>
+      </li>
+      <li>关注
+        <ul>
+          <li>新浪微博</li>
+          <li>腾讯微博</li>
+          <li>企业微信</li>
+          <li>QQ空间</li>
+        </ul>
+      </li>
+      <li>留言
+        <ul>
+          <li>意见反馈</li>
+          <li>问题留言</li>
+          <li>媒体联络</li>
+          <li>在线客服</li>
+        </ul>
+      </li>
+     <!--  <li><img src="images/weixin.png" alt="微信关注" width="30" height="27" /></li> -->
+     <li>
+       <ul>
+          <li><img src="images/ewm.jpg" alt="扫描关注慕课网官方微信" width="80" height="80" /></li>
+          <li class="nav_mid"><img src="images/youxiang.jpg" alt="邮箱联系我" width="30" height="27" /><p><a href="mailto:tanhaibogod@gmail.com">tanhaibogod@gmail.com</a></p></li>
+       </ul>
+     </li>
+    </ul>
+  </div>
+  <!--copyright_content结束--> 
+</div>
+<!--copyright结束--> 
+
+<div class="bottom">
+    <p>Copyright @ 2016 &nbsp;&nbsp;thbgod.com&nbsp;&nbsp;  All Rights  Reserved <br>
+    <a href="JSMove/Move.html">JS动作效果</a></p>
+
+</div>
+</body>
+</html>
