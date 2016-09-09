@@ -1,20 +1,19 @@
-
-//æœ€ç»ˆå°è£…çš„'å®Œç¾ç§»åŠ¨æ¡†æ¶'
+//×îÖÕ·â×°µÄ'ÍêÃÀÒÆ¶¯¿ò¼Ü'
 function startMove(obj,json,fn){
   clearInterval(obj.timer);
   obj.timer = setInterval(function(){
-    var flag = true;//æ ‡å¿—æ‰€æœ‰è¿åŠ¨æ˜¯å¦åˆ°è¾¾ç›®æ ‡å€¼
+    var flag = true;//±êÖ¾ËùÓĞÔË¶¯ÊÇ·ñµ½´ïÄ¿±êÖµ
     for(var attr in json){
 
       var curr = 0;
-       //åˆ¤æ–­æ˜¯å¦ä¸ºé€æ˜åº¦
-      if(attr == 'opacity'){//ç”±äºparseIntä¼šæŠŠå°äº1çš„å°æ•°è½¬æˆ0ï¼Œä¼šå¼•èµ·æ˜¾ç¤ºbug
+       //ÅĞ¶ÏÊÇ·ñÎªÍ¸Ã÷¶È
+      if(attr == 'opacity'){//ÓÉÓÚparseInt»á°ÑĞ¡ÓÚ1µÄĞ¡Êı×ª³É0£¬»áÒıÆğÏÔÊ¾bug
 
         curr = Math.round(parseFloat(getStyle(obj,attr))*100);
       } else {
         curr = parseInt(getStyle(obj,attr));
       }
-      //ç§»åŠ¨é€Ÿåº¦å¤„ç†
+      //ÒÆ¶¯ËÙ¶È´¦Àí
       var speed =0;
       speed = (json[attr]-curr)/10;
       speed = speed >0?Math.ceil(speed):Math.floor(speed);
@@ -23,7 +22,7 @@ function startMove(obj,json,fn){
         flag = false;
         }
 
-        if(attr == 'opacity'){//å±æ€§ä¸ºé€æ˜åº¦æ—¶ç‰¹æ®Šå¤„ç†
+        if(attr == 'opacity'){//ÊôĞÔÎªÍ¸Ã÷¶ÈÊ±ÌØÊâ´¦Àí
           obj.style.filter = 'alpha(opacity:'+(curr+speed)+')';
           obj.style[attr] = (curr+speed)/100;
         } else {
@@ -40,7 +39,7 @@ function startMove(obj,json,fn){
 
   },10);
 }
-//å–æ ·å¼å‡½æ•°
+//È¡ÑùÊ½º¯Êı
 function getStyle(obj,attr){
   if(obj.currentStyle){
 

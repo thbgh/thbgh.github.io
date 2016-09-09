@@ -9,7 +9,7 @@
 		window.onload=function(){
 	var box=document.getElementById('box'),
 	    iCo=box.getElementsByTagName('a');
-	for(i=0;i<iCo.length;i++){
+	for(var i=0;i<iCo.length;i++){
 		iCo[i].onmouseenter=function(){
 			var _this=this.getElementsByTagName('i')[0];
 			startMove(_this,{top:-30,opacity:0},function(){
@@ -36,6 +36,7 @@
 		</div>
 	
 	</div> 
+	<h2><a href="各种单独的JS动画效果.html">各种JS动画效果</a></h2>
 
 	<!-- <div id="box">
 		<div id="div1">

@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>js速度动画</title>
+<style>
+
+div,body,span{
+padding:0;	
+margin:0;
+}
+#div1{
+width:200px;
+height:200px;
+position:relative;
+left:-200px;
+background:olive;
+}
+#div1 span{
+width: 20px;
+height: 40px;
+background-color: blue;
+position: absolute;
+top: 80px;
+left: 200px;
+}
+#div2{
+width:200px;	
+height:200px;
+background:red;
+filter: alphaha(opacity:20); /* 兼容IE */
+opacity: 0.2; 
+}
+
+li{
+	width:200px;
+	height:100px;
+	background:yellow;
+	list-style: none;
+	margin-bottom: 5px;
+}
+#div3 div{
+width:200px;	
+height:100px;
+float: left;
+margin:20px 10px;
+background:red;
+filter: alphaha(opacity:20); /* 兼容IE */
+opacity: 0.2; 
+}
+
+</style>
+
+<script>
+window.onload=function(){
+//div1	左右运动
+var Div1=document.getElementById('div1');
+Div1.onmouseover=function(){
+
+/*//div1	匀速运动
+startMove(0);
+}
+Div1.onmouseout=function(){
+startMove(-200);
+}*/
+
+//div1	左右变速运动(启用时注释掉匀速运动的调用函数)
+biansu(0);
+}
+Div1.onmouseout=function(){
+biansu(-200);
+}
+
+
+//div2 透明度变化
+var Div2=document.getElementById('div2');
+Div2.onmouseover=function(){
+changeOpcity(100);
+}
+Div2.onmouseout=function(){
+changeOpcity(20);
+}
+
+//多物体变速运动
+var aLi=document.getElementsByTagName('li');
+for (var i = 0; i < aLi.length; i++) {
+	aLi[i].timer=null;  //*****给每一个li单独设置一个定时器
+	aLi[i].onmouseover=function(){
+		duoMove(this,600);
+}
+aLi[i].onmouseout=function(){
+		duoMove(this,200);
+}
+}
+
+//多物体改变透明度
+var aDiv=document.getElementById('div3').getElementsByTagName('div');
+for (var i = 0; i < aDiv.length; i++) {
+	aDiv[i].timer=null;  //*****给每一个div单独设置一个定时器
+	aDiv[i].alpha = 30;  
+	aDiv[i].onmouseover=function(){
+		duoChangeOpacity(this,100);
+}
+    aDiv[i].onmouseout=function(){
+		duoChangeOpacity(this,20);
+}
+
+}
+
+
+
+}
+
+//多物体改变透明度
+/* var alpha = 30;  //透明度没有属性,所以创建透明变量，并赋值属性*/
+ function duoChangeOpacity(obj,target){
+ clearInterval(obj.timer);
+ obj.timer= setInterval(function(){
+ var speed = 0;
+ if( obj.alpha < target){
+ speed = 10;
+ } else {
+ speed = -10;
+ }
+ if( obj.alpha == target){
+ clearInterval(obj.timer);
+ } else {
+ obj.alpha += speed;
+ obj.style.filter = 'alpha(opacity:'+ obj.alpha+')';
+ obj.style.opacity =  obj.alpha / 100;
+ }
+
+ },30);
+ }
+
+
+
+//多物体变速运动
+var speed=0;
+function duoMove(obj,target){
+clearInterval(obj.timer);
+obj.timer=setInterval(function(){
+speed=(target-obj.offsetWidth)/8;
+speed=speed>0?Math.ceil(speed):Math.floor(speed);  //巧妙地处理不能到达目标值的问题
+if(obj.offsetWidth==target){
+clearInterval(obj.timer);
+}else{
+obj.style.width=obj.offsetWidth+speed+'px';
+}
+},30);
+}
+
+
+
+//左右匀速运动
+var timer=null;
+var speed=0;
+function startMove(target){
+clearInterval(timer);
+var Div1=document.getElementById('div1');
+timer=setInterval(function(){
+if(Div1.offsetLeft<target){
+   speed=10;
+}else{
+	speed=-10;
+}	
+if(Div1.offsetLeft==target){
+clearInterval(timer);
+}else{
+Div1.style.left=Div1.offsetLeft+speed+'px';
+}
+},30);
+}
+
+
+//左右变速运动
+var timer=null;
+var speed=0;
+function biansu(target){
+clearInterval(timer);
+var Div1=document.getElementById('div1');
+timer=setInterval(function(){
+
+speed=(target-Div1.offsetLeft)/20;
+speed=speed>0?Math.ceil(speed):Math.floor(speed);  //巧妙地处理不能到达目标值的问题
+
+/*if(Div1.offsetLeft<target){
+   speed=10;
+}else{
+	speed=-10;
+}*/	
+if(Div1.offsetLeft==target){
+clearInterval(timer);
+}else{
+Div1.style.left=Div1.offsetLeft+speed+'px';
+}
+},30);
+}
+
+
+
+//透明度变化
+//一个问题：当我把透明值改为小数时，会出现在两个目标值透明度不稳定，不断闪变
+ var timer2 = null;
+ var alpha = 30;  //透明度没有属性,所以创建透明变量，并赋值属性
+ function changeOpcity(alp){
+ var Div2 = document.getElementById('div2');
+ clearInterval(timer2);
+ timer2 = setInterval(function(){
+ var speed = 0;
+ if(alpha < alp){
+ speed = 10;
+ } else {
+ speed = -10;
+ }
+ if(alpha == alp){
+ clearInterval(timer2);
+ } else {
+ alpha += speed;
+ Div2.style.filter = 'alpha(opacity:'+alpha+')';
+ Div2.style.opacity = alpha / 100;
+ }
+
+ },100);
+ }
+
+
+
+
+
+
+
+
+</script>
+</head>
+<body>
+
+<div id="div1">
+<h1>单物体运动</h1>
+<span id="share">开动</span>
+</div>
+<div id="div2"><h1>透明度</h1></div>
+<ul>
+	<li>多</li>
+	<li>物</li>
+	<li>体</li>
+</ul>
+<div id="div3">
+	<div>透</div>
+	<div>明</div>
+	<div>度</div>
+</div>
+
+</body>
+</html>
