@@ -259,13 +259,14 @@ body {
 	border: 1px solid #E8E8E8;
 }
 .video_content {
-	height: 250px;
+	height: 180px;
 }
-.service {
-	height: 20px;
-
+.video_name {
+	height: 24px;
 	line-height: 20px;
 	text-align: center; 
+	border-right: 1px solid #E8E8E8;
+	border-bottom: 1px solid #E8E8E8;
 	
 }
 .copyright {
